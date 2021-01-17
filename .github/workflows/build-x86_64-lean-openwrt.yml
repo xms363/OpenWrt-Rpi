@@ -26,7 +26,7 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  CONFIG_FILE: config/lean/x86/x86-lean-extra.config
+  CONFIG_FILE: config/lean/ipq40xx/gdock-lean-openwrt.config
   DIY_SH: scripts/lean-openwrt.sh
   IPV6MOD_IN_FIRMWARE: true
   KMODS_IN_FIRMWARE: true
