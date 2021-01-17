@@ -5,6 +5,7 @@
 # Author: P3TERX
 # Blog: https://p3terx.com
 #=================================================
+#SSH远程配置固件（true=开启）（false=关闭）
 
 name: Build x86_64 Lean's OpenWrt
 
@@ -15,7 +16,7 @@ on:
      inputs:
       ssh:
         description: 'SSH connection to Actions'
-        required: false
+        required: true
         default: 'false' 
   schedule:
     - cron: 0 18 * * *
