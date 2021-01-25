@@ -5,6 +5,7 @@
 # Author: P3TERX
 # Blog: https://p3terx.com
 #=================================================
+#SSH远程配置固件（true=开启）（false=关闭）
 
 name: Build G-Dock Lean's OpenWrt
 
@@ -12,6 +13,11 @@ on:
   repository_dispatch:
     types: [lean, gdock]
   workflow_dispatch:
+     inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'true'  
   #schedule:
     #- cron: 0 18 * * *
 #  watch:
@@ -83,6 +89,14 @@ jobs:
         ../$DIY_SH
         ../scripts/preset-clash-core.sh armv7
         ../scripts/preset-terminal-tools.sh
+        
+    - name: SSH connection to Actions
+      uses: P3TERX/ssh2actions@v1.0.0
+      if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
+      env:
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}        
+        
 
     - name: Download Package
       id: package
