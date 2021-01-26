@@ -26,6 +26,9 @@ git clone --depth=1 https://github.com/Lienol/openwrt-package
 # Add luci-app-passwall
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall
 
+# Add kenzo
+git clone --depth=1 https://github.com/kenzok8/openwrt-packages
+
 # Add luci-app-vssr <M>
 git clone --depth=1 https://github.com/jerrykuku/lua-maxminddb.git
 git clone --depth=1 https://github.com/jerrykuku/luci-app-vssr
